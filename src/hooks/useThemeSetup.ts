@@ -12,13 +12,13 @@ export const useThemeSetup = () => {
   const dispatch = useAppDispatch();
 
   const toggleTheme = () => {
-    const newTheme = savedTheme === "dark" ? "light" : "dark"
-    setSavedTheme(newTheme)
+    const newTheme = savedTheme === "dark" ? "light" : "dark";
+    setSavedTheme(newTheme);
   }
 
   useEffect(() => {
     dispatch(setTheme(savedTheme));
   }, [savedTheme, dispatch]);
 
-  return toggleTheme;
+  return { savedTheme, toggleTheme };
 };

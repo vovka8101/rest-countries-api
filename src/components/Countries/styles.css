@@ -1,0 +1,55 @@
+/* #region countries */
+.main {
+  padding: 40px 24px 40px;
+
+  .countries {
+    display: grid;
+    gap: 72px;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+/* #endregion */
+
+/* #region country */
+.country {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: var(--elements-bg);
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .country-flag {
+    max-height: 200px;
+    object-fit: cover;
+  }
+
+  .country-content {
+    padding: 30px 20px 40px;
+
+    .country-name {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .country-info {
+      font-size: .9em;
+      margin-bottom: 6px;
+
+      .country-value {
+        color: var(--country-value-color);
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+/* #endregion */

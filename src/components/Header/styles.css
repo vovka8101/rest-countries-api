@@ -1,0 +1,24 @@
+.header {
+  padding: 24px 16px;
+  background-color: var(--header-bg);
+  color: var(--header-text-color);
+  transition: background-color var(--dur), color var(--dur);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .main-title {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .toggle-theme-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+    }
+  }
+}

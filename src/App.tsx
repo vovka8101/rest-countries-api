@@ -5,7 +5,7 @@ import { Header } from './components/Header/Header'
 
 function App() {
   const { value } = useAppSelector(state => state.theme)
-  console.log(value)
+
   return (
     <div className="app" data-theme={value}>
       <Header />

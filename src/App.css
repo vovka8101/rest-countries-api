@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 /* #region reset styles */
 html {
   box-sizing: border-box;
@@ -43,17 +45,41 @@ button {
 }
 /* #endregion */
 
+/* #region page */
 :root {
-  --main-background: white;
-  --text-color: black;
+  --elements-bg: white;
+  --header-bg: white;
+  --header-text-color: #111517;
+  --main-bg: #fafafa;
+  --text-color: #111517;
+  --input-color: #858585;
+
+  --content-width: 1280px;
+  --dur: 150ms;
 }
 
 [data-theme="dark"] {
-  --main-background: #020022;
+  --elements-bg: #2b3945;
+  --header-bg: #2b3945;
+  --header-text-color: #eee;
+  --main-bg: #202c37;
   --text-color: white;
+  --country-value-color: #ccc;
+}
+
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 600;
 }
 
 .app {
-  background-color: var(--main-background);
+  min-height: 100vh;
   color: var(--text-color);
+  background-color: var(--main-bg);
 }
+
+.content {
+  max-width: var(--content-width);
+  margin-inline: auto;
+}
+/* #endregion */
