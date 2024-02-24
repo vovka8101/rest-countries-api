@@ -2,5 +2,18 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 30px;
   margin-bottom: 40px;
+
+  .search-box {
+    position: relative;
+    flex-grow: 1;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 450px;
+    padding-left: 60px;
+  }
 }

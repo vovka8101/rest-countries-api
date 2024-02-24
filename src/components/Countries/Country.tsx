@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { TCountries } from "../../types/types"
 
 type CountryProps = {
@@ -6,7 +7,7 @@ type CountryProps = {
 
 export const Country = ({ country }: CountryProps) => {
   return (
-    <div className="country">
+    <Link to={`/country/${country.name.common}`} className="country">
       <img className="country-flag" src={country.flags.svg} alt={country.flags.alt} />
       <div className="country-content">
         <h2 className="country-name">{country.name.common}</h2>
@@ -20,6 +21,6 @@ export const Country = ({ country }: CountryProps) => {
           Capital: <span className="country-value">{country.capital.join(", ")}</span>
         </p>
       </div>
-    </div>
+    </Link>
   )
 }
