@@ -3,6 +3,7 @@ import { useGetAllCountriesQuery } from "../../services/countriesApi"
 import { Country } from "./Country"
 import { Search } from "./Search/Search"
 import "./styles.css"
+import { Preloader } from "../Preloader/Preloader"
 
 export const Countries = () => {
   const { data, error, isLoading } = useGetAllCountriesQuery(null)
@@ -17,19 +18,13 @@ export const Countries = () => {
   ))
 
   return (
-    <main className="main">
-      <div className="main-content content">
-        <Search handleSearch={handleSearch} />
-        <section className="countries">
-          {isLoading ? (
-            <p>Loading...</p>
-          ) : error ? (
-            <p>An error occured:</p>
-          ) : (
-            [countries]
-          )}
-        </section>
-      </div>
-    </main>
+    <div className="main-content content">
+      <Search handleSearch={handleSearch} />
+      {isLoading && <Preloader />}
+      <section className="countries">
+        {error && <p>An error occured</p>}
+        {!isLoading && !error && [countries]}
+      </section>
+    </div>
   )
 }

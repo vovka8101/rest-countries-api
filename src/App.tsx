@@ -11,10 +11,13 @@ function App() {
   return (
     <div className="app" data-theme={value}>
       <Header />
-      <Routes>
-        <Route path="/" element={<Countries />} />
-        <Route path="/country/:name" element={<CountryDetails />} />
-      </Routes>
+      <main className="main">
+        <Routes>
+          <Route path="/" element={<Countries />} />
+          <Route path="/country/:code" element={<CountryDetails />} />
+          <Route path="/*" element={<div>404 Not Found</div>} />
+        </Routes>
+      </main>
     </div>
   )
 }

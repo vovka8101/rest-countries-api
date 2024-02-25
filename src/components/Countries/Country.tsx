@@ -7,10 +7,10 @@ type CountryProps = {
 
 export const Country = ({ country }: CountryProps) => {
   return (
-    <Link to={`/country/${country.name.common}`} className="country">
+    <Link to={`/country/${country.cca3}`} className="country">
       <img className="country-flag" src={country.flags.svg} alt={country.flags.alt} />
       <div className="country-content">
-        <h2 className="country-name">{country.name.common}</h2>
+        <h3 className="country-name">{country.name.common}</h3>
         <p className="country-info">
           Population: <span className="country-value">{country.population.toLocaleString()}</span>
         </p>

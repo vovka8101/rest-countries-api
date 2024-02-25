@@ -1,6 +1,7 @@
 import { useThemeSetup } from "../../hooks/useThemeSetup"
 import { IoMoon, IoSunny } from "react-icons/io5";
 import "./styles.css"
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   const { savedTheme, toggleTheme } = useThemeSetup()
@@ -8,7 +9,7 @@ export const Header = () => {
   return (
     <header className="header">
       <div className="header-content content">
-        <h1 className="main-title">Where in the world?</h1>
+        <Link to="/"><h1 className="main-title">Where in the world?</h1></Link>
         <div className="toggle-theme-btn" onClick={toggleTheme}>
           {savedTheme === "dark" ? (
             <><IoSunny style={{height: "1.5em", width: "1.5em"}} /><span className="toggle-text">Light Mode</span></>

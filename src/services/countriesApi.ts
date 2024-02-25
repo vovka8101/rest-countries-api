@@ -1,8 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { TCountries, TCountry } from '../types/types'
 
-const minimalFields = ["name", "flags", "population", "region", "capital"]
+const minimalFields = ["cca3", "name", "flags", "population", "region", "capital"]
 const allFields = [
+  "cca3",
   "name",
   "flags",
   "population",
@@ -22,8 +23,8 @@ export const countriesApi = createApi({
     getAllCountries: builder.query<TCountries[], null>({
       query: () => `all?fields=${minimalFields.join(",")}`
     }),
-    getCountry: builder.query<TCountry[], string>({
-      query: (name) => `name/${name}?fields=${allFields.join(",")}`
+    getCountry: builder.query<TCountry, string>({
+      query: (code) => `alpha/${code}?fields=${allFields.join(",")}`
     })
   }),
 })

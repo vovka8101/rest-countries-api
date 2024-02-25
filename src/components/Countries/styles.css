@@ -34,23 +34,23 @@
   .country-content {
     padding: 30px 20px 40px;
   
+    .country-name {
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 700;
+    }
   }
-}
-
-.country-name {
-  margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: 700;
 }
 
 .country-info {
   font-size: .9em;
   margin-bottom: 6px;
 
-  .country-value {
-    color: var(--country-value-color);
-    font-weight: 300;
-  }
+}
+
+.country-value {
+  color: var(--country-value-color);
+  font-weight: 300;
 }
 
 /* #endregion */

@@ -38,10 +38,20 @@ img {
   vertical-align: bottom;
 }
 
-button {
+.btn {
   padding: 0;
-  background-color: transparent;
-  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  background-color: var(--elements-bg);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border 0.2s;
+
+  &:hover {
+    border: 1px solid black;
+  }
 }
 
 a {

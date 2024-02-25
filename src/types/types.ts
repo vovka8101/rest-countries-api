@@ -3,6 +3,7 @@ export type Theme = {
 }
 
 export type TCountries = {
+  cca3: string
   name: { common: string }
   flags: { svg: string, alt: string }
   population: number
@@ -14,7 +15,16 @@ export type TNativeName = {
   [key: string]: { common: string }
 }
 
+export type TCurrencies = {
+  [key: string]: { name: string, symbol: string }
+}
+
+export type TLanguages = {
+  [key: string]: string
+}
+
 export type TCountry = {
+  cca3: string
   name: {
     common: string
     nativeName: TNativeName
@@ -25,7 +35,7 @@ export type TCountry = {
   subregion: string
   capital: string[]
   tld: string[]
-  currencies: { [key: string]: { name: string, symbol: string } }
-  languages: { [key: string]: string }
+  currencies: TCurrencies
+  languages: TLanguages
   borders: string[]
 }

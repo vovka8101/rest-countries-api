@@ -1,0 +1,8 @@
+.preloader {
+  text-align: center;
+
+  .preloader-icon {
+    width: 30%;
+    height: 30%;
+  }
+}
