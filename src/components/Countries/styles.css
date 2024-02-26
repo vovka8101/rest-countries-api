@@ -26,9 +26,16 @@
     transform: scale(1.05);
   }
 
-  .country-flag {
-    max-height: 200px;
-    object-fit: cover;
+  .country-flag-container {
+    min-height: 180px;
+    background-color: #3a4651;
+
+    .country-flag {
+      width: 100%;
+      min-height: 180px;
+      max-height: 220px;
+      object-fit: cover;
+    }
   }
 
   .country-content {

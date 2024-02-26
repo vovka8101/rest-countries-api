@@ -23,7 +23,7 @@ export const Countries = () => {
       {isLoading && <Preloader />}
       <section className="countries">
         {error && <p>An error occured</p>}
-        {!isLoading && !error && [countries]}
+        {!isLoading && data && [countries]}
       </section>
     </div>
   )

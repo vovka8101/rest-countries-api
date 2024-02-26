@@ -8,7 +8,14 @@ type CountryProps = {
 export const Country = ({ country }: CountryProps) => {
   return (
     <Link to={`/country/${country.cca3}`} className="country">
-      <img className="country-flag" src={country.flags.svg} alt={country.flags.alt} />
+      <div className="country-flag-container">
+        <img
+          className="country-flag"
+          src={country.flags.svg}
+          loading="lazy"
+          alt={country.flags.alt}
+        />
+      </div>
       <div className="country-content">
         <h3 className="country-name">{country.name.common}</h3>
         <p className="country-info">
