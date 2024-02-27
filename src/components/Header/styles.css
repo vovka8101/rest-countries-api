@@ -2,16 +2,21 @@
   padding: 24px 16px;
   background-color: var(--header-bg);
   color: var(--header-text-color);
-  transition: background-color var(--dur), color var(--dur);
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.3);
 
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 16px;
 
     .main-title {
       font-size: 24px;
       font-weight: 700;
+
+      @media (max-width: 475px) {
+        font-size: 18px;
+      }
     }
 
     .toggle-theme-btn {
@@ -23,6 +28,12 @@
 
       &:hover {
         box-shadow: 0 0 20px -4px black;
+      }
+
+      .toggle-text {
+        @media (max-width: 475px) {
+          display: none;
+        }
       }
     }
   }

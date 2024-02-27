@@ -15,5 +15,19 @@
     width: 100%;
     max-width: 450px;
     padding-left: 60px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .select {
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+
+    &:focus {
+      box-shadow: none;
+    }
   }
 }

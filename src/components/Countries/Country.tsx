@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom"
 import { TCountries } from "../../types/types"
+import { useState } from "react"
 
 type CountryProps = {
   country: TCountries
 }
 
 export const Country = ({ country }: CountryProps) => {
+  const [isLoading, setIsLoading] = useState(true)
+
   return (
     <Link to={`/country/${country.cca3}`} className="country">
       <div className="country-flag-container">
+        {isLoading && <div className="skeleton"></div>}
         <img
           className="country-flag"
           src={country.flags.svg}
           loading="lazy"
+          onLoad={() => setIsLoading(false)}
           alt={country.flags.alt}
         />
       </div>

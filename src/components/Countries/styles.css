@@ -23,12 +23,11 @@
   transition: transform 0.3s;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
   }
 
   .country-flag-container {
     min-height: 180px;
-    background-color: #3a4651;
 
     .country-flag {
       width: 100%;

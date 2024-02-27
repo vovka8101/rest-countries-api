@@ -2,7 +2,7 @@ import { IoSearchSharp } from "react-icons/io5"
 import "./styles.css"
 
 type SearchProps = {
-  handleSearch: (value: string) => void
+  handleSearch: (value: string, type: "input" | "filter") => void
 }
 
 export const Search = ({ handleSearch }: SearchProps) => {
@@ -15,18 +15,22 @@ export const Search = ({ handleSearch }: SearchProps) => {
         <input
           type="search"
           className="search-input"
-          onChange={e => handleSearch(e.target.value)}
+          onChange={e => handleSearch(e.target.value, "input")}
           placeholder="Search for a country..."
         />
       </div>
       <div className="form-group">
-        <select name="filter">
-          <option value="" disabled selected hidden>Filter by Region</option>
-          <option value="africa">Africa</option>
-          <option value="america">America</option>
-          <option value="asia">Asia</option>
-          <option value="europe">Europe</option>
-          <option value="oceania">Oceania</option>
+        <select
+          className="select"
+          defaultValue=""
+          onChange={e => handleSearch(e.target.value, "filter")}
+        >
+          <option value="" disabled hidden>Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">Americas</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </div>
     </section>

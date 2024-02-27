@@ -1,47 +1,27 @@
 import { Interweave } from "interweave"
-import { TCountry, TCurrencies, TLanguages, TNativeName } from "../../types/types"
+import { TCountry } from "../../types/types"
 import "./styles.css"
+import { getNativeNames, getCurrencies, getLanguages } from "../../utils/utils"
 import { Link } from "react-router-dom"
+import { useState } from "react"
 
 type DetailsContentProps = {
   country: TCountry
 }
 
 export const DetailsContent = ({ country }: DetailsContentProps) => {
-  const getNativeNames = (nativeNames: TNativeName) => {
-    const names: string[] = []
-
-    for (const key in nativeNames) {
-      names.push(`${nativeNames[key].common}<sup>${key}</sup>`)
-    }
-
-    return names.join(", ")
-  }
-
-  const getCurrencies = (currencies: TCurrencies) => {
-    const currenciesArr: string[] = []
-
-    for (const key in currencies) {
-      currenciesArr.push(currencies[key].name)
-    }
-
-    return currenciesArr.join(", ")
-  }
-
-  const getLanguages = (languages: TLanguages) => {
-    const languagesArr: string[] = []
-
-    for (const key in languages) {
-      languagesArr.push(languages[key])
-    }
-
-    return languagesArr.join(", ")
-  }
-
+  const [isLoading, setIsLoading] = useState(true)
+  
   return (
     <>
       <div className="details-img-container">
-        <img className="details-flag-img" src={country.flags.svg} alt={country.flags.alt} />
+        {isLoading && <div className="skeleton"></div>}
+        <img
+          className="details-flag-img"
+          src={country.flags.svg}
+          onLoad={() => setIsLoading(false)}
+          alt={country.flags.alt}
+        />
       </div>
       <div className="details-info">
         <h2 className="country-title">{country.name.common}</h2>
@@ -80,9 +60,14 @@ export const DetailsContent = ({ country }: DetailsContentProps) => {
         <div className="border-countries">
           <p className="country-info">Border Countries:</p>
           <span className="border-value country-value">
-            {country.borders.map(border => (
-              <Link to={`/country/${border}`} className="border-btn btn">{border}</Link>
-            ))}
+            {country.borders.length ? country.borders.map(border => (
+              <Link
+                key={border}
+                to={`/country/${border}`}
+                className="border-btn btn"
+              >{border}</Link>
+            )) : "Without land borders"
+            }
           </span>
         </div>
       </div>
