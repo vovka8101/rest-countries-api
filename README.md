@@ -27,7 +27,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Add live site URL here](https://vovka8101.github.io/rest-countries-api/)
+- [Live Site](https://vovka8101.github.io/rest-countries-api/)
 
 
 ### Built with
@@ -45,4 +45,4 @@ Users should be able to:
 
 ### Author
 
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/vovka8101)
+- Frontend Mentor - [@vovka8101](https://www.frontendmentor.io/profile/vovka8101)
