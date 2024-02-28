@@ -10,21 +10,21 @@ type DetailsContentProps = {
 }
 
 export const DetailsContent = ({ country }: DetailsContentProps) => {
-  const [isLoading, setIsLoading] = useState(true)
+  const [isImgLoading, setIsImgLoading] = useState(true)
   
   return (
     <>
       <div className="details-img-container">
-        {isLoading && <div className="skeleton"></div>}
+        {isImgLoading && <div className="skeleton"></div>}
         <img
           className="details-flag-img"
           src={country.flags.svg}
-          onLoad={() => setIsLoading(false)}
+          onLoad={() => setIsImgLoading(false)}
           alt={country.flags.alt}
         />
       </div>
       <div className="details-info">
-        <h2 className="country-title">{country.name.common}</h2>
+        <h2 className="country-title">{country.name.official}</h2>
         <div className="country-info-container">
           <div className="country-info-main">
             <p className="country-info">
@@ -60,12 +60,12 @@ export const DetailsContent = ({ country }: DetailsContentProps) => {
         <div className="border-countries">
           <p className="country-info">Border Countries:</p>
           <span className="border-value country-value">
-            {country.borders.length ? country.borders.map(border => (
+            {country.borderNames?.length ? country.borderNames.map(border => (
               <Link
-                key={border}
-                to={`/country/${border}`}
+                key={border.cca3}
+                to={`/country/${border.cca3}`}
                 className="border-btn btn"
-              >{border}</Link>
+              >{border.name.common}</Link>
             )) : "Without land borders"
             }
           </span>

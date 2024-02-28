@@ -22,6 +22,7 @@ export const Search = ({ handleSearch }: SearchProps) => {
       <div className="form-group">
         <select
           className="select"
+          name="filter"
           defaultValue=""
           onChange={e => handleSearch(e.target.value, "filter")}
         >

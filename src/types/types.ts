@@ -26,7 +26,7 @@ export type TLanguages = {
 export type TCountry = {
   cca3: string
   name: {
-    common: string
+    official: string
     nativeName: TNativeName
   }
   flags: { svg: string, alt: string }
@@ -38,4 +38,8 @@ export type TCountry = {
   currencies: TCurrencies
   languages: TLanguages
   borders: string[]
+  borderNames?: {
+    name: { common: string }
+    cca3: string
+  }[]
 }

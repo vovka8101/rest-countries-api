@@ -7,9 +7,9 @@ import { Preloader } from "../Preloader/Preloader"
 export const CountryDetails = () => {
   const navigate = useNavigate();
   const { code } = useParams<"code">()
-  const { data, error, isLoading } = useGetCountryQuery(code ?? "")
+  const { data, error, isFetching } = useGetCountryQuery(code ?? "")
 
-  if (!data && !isLoading) {
+  if (!data && !isFetching) {
     return <div>No match</div>
   }
 
@@ -19,10 +19,10 @@ export const CountryDetails = () => {
         <IoArrowBackOutline />
         Back
       </button>
-      {isLoading && <Preloader />}
+      {isFetching && <Preloader />}
       <section className="details-content">
         {error && <p>An error occured</p>}
-        {!isLoading && !error && <DetailsContent country={data} />}
+        {!isFetching && data && <DetailsContent country={data} />}
       </section>
     </div>
   )

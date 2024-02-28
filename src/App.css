@@ -2,6 +2,7 @@
 
 /* #region variables */
 :root {
+  color-scheme: light;
   --elements-bg: white;
   --header-bg: white;
   --header-text-color: #111517;
@@ -17,6 +18,7 @@
 }
 
 [data-theme="dark"] {
+  color-scheme: dark;
   --elements-bg: #2b3945;
   --header-bg: #2b3945;
   --header-text-color: #eee;

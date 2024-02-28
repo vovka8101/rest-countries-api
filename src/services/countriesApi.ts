@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { FetchBaseQueryError, createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import type { TCountries, TCountry } from '../types/types'
 
 const minimalFields = ["cca3", "name", "flags", "population", "region", "capital"]
@@ -24,7 +24,20 @@ export const countriesApi = createApi({
       query: () => `all?fields=${minimalFields.join(",")}`
     }),
     getCountry: builder.query<TCountry, string>({
-      query: (code) => `alpha/${code}?fields=${allFields.join(",")}`
+      async queryFn(_arg, _queryApi, _extraOptions, fetchWithBQ) {
+        const countryResult = await fetchWithBQ(`alpha/${_arg}?fields=${allFields.join(",")}`)
+        if (countryResult.error)
+          return { error: countryResult.error as FetchBaseQueryError }
+        const countryDetails = countryResult.data as TCountry
+
+        if (countryDetails.borders.length) {
+          const bordersResult = await fetchWithBQ(`alpha?codes=${countryDetails.borders.join(",")}&fields=name,cca3`)
+          const borderNames = bordersResult?.data as TCountry["borderNames"]
+          return { data: { ...countryDetails, borderNames } }
+        }
+
+        return { data: countryDetails }
+      },
     })
   }),
 })
