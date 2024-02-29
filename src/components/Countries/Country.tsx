@@ -10,7 +10,7 @@ export const Country = ({ country }: CountryProps) => {
   const [isLoading, setIsLoading] = useState(true)
 
   return (
-    <Link to={`/country/${country.cca3}`} className="country">
+    <Link to={`country/${country.cca3}`} className="country">
       <div className="country-flag-container">
         {isLoading && <div className="skeleton"></div>}
         <img

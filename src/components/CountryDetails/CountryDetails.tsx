@@ -1,27 +1,25 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { useGetCountryQuery } from "../../services/countriesApi"
 import { DetailsContent } from "./DetailsContent"
-import { IoArrowBackOutline } from "react-icons/io5"
 import { Preloader } from "../Preloader/Preloader"
+import { ButtonBack } from "../ButtonBack/ButtonBack"
+import { CountryNotFound } from "../404/CountryNotFound"
 
 export const CountryDetails = () => {
-  const navigate = useNavigate();
   const { code } = useParams<"code">()
   const { data, error, isFetching } = useGetCountryQuery(code ?? "")
 
   if (!data && !isFetching) {
     return <div>No match</div>
+  } else if (error) {
+    return <CountryNotFound />
   }
 
   return (
     <div className="details content">
-      <button className="back-btn btn" onClick={() => navigate(-1)}>
-        <IoArrowBackOutline />
-        Back
-      </button>
+      <ButtonBack />
       {isFetching && <Preloader />}
       <section className="details-content">
-        {error && <p>An error occured</p>}
         {!isFetching && data && <DetailsContent country={data} />}
       </section>
     </div>

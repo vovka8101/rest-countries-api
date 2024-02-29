@@ -10,11 +10,13 @@
   --text-color: #111517;
   --input-color: #858585;
   --shadow-color: #666;
-  
   --country-value-color: #444;
   --skeleton-color: #c7c7c7;
+
   --content-width: 1280px;
+
   --dur: 150ms;
+  --not-found-url: url(/images/country-not-found-light.png)
 }
 
 [data-theme="dark"] {

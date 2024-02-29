@@ -1,0 +1,8 @@
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 30px;
+  font-weight: 300;
+  margin-bottom: 60px;
+}

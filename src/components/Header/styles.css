@@ -20,14 +20,17 @@
     }
 
     .toggle-theme-btn {
+      padding-inline: 4px;
       display: flex;
       align-items: center;
       gap: 10px;
+      border: 1px solid transparent;
+      border-radius: 4px;
       cursor: pointer;
-      transition: box-shadow 0.2s;
+      transition: border 0.2s;
 
       &:hover {
-        box-shadow: 0 0 20px -4px black;
+        border: 1px solid #000c36;
       }
 
       .toggle-text {
